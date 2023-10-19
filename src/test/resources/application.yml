@@ -1,0 +1,12 @@
+server:
+  port: 8888
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format-sql: true
+    show-sql: true
+  liquibase:
+    enabled: true

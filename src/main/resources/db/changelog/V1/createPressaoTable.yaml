@@ -1,0 +1,49 @@
+databaseChangeLog:
+  -  property:
+      dbms:  postgresql
+      name:  bigInteger
+      value:  NUMERIC(6, 2)
+  -  property:
+      dbms:  postgresql
+      name:  autoincrement
+      value:  serial
+  - changeSet:
+      id: create-database
+      author: jw-progammer
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+          - tableExists:
+             tableName: pressao_arterial
+      changes:
+        - createTable:
+            tableName: pressao_arterial
+            remarks: Tabela de pressão arteiral.
+            columns:
+              - column:
+                 name: id
+                 type: ${autoincrement}
+                 constraints:
+                   primaryKey: true
+                   primaryKeyName: pressaoArterial_pk
+                   nullable: false
+              - column:
+                 name: sistolica
+                 type: ${bigInteger}
+                 constraints:
+                   nullable: false
+              - column:
+                 name: diastolica
+                 type: ${bigInteger}
+                 constraints:
+                   nullable: false
+              - column:
+                 name: risco
+                 type: INTEGER
+                 constraints:
+                   nullable: false
+              - column:
+                 name: data_medicao
+                 type: DATE
+                 constraints:
+                   nullable: false
