@@ -23,6 +23,10 @@ public class PressaoArterial {
     private BigDecimal diastolica;
     private Risco risco;
     private LocalDate dataMedicao;
+    
+    private PressaoArterial() {
+    	
+    };
 
     public PressaoArterial(String sistolica, String diastolica) {
         this.diastolica = new BigDecimal(diastolica).setScale(2, RoundingMode.UP);

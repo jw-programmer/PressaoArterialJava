@@ -2,7 +2,7 @@ databaseChangeLog:
   -  property:
       dbms:  postgresql
       name:  bigInteger
-      value:  NUMERIC(6, 3)
+      value:  NUMERIC(6, 2)
   -  property:
       dbms:  postgresql
       name:  autoincrement

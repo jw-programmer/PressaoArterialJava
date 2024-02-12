@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: createPressaoTable.yaml
+      relativeToChangelogFile: true

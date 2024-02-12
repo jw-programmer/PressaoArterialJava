@@ -36,6 +36,3 @@ build/
 .project
 .classpath
 .factorypath
-
-### envoriment variables ###
-*.env
