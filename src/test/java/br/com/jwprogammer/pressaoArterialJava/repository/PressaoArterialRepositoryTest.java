@@ -30,7 +30,7 @@ public class PressaoArterialRepositoryTest extends AbstractIntegrationTest {
         PressaoArterial pressaoTest5 = new PressaoArterial("140", "90");
         
         var listaDataRegistarda = Arrays.asList(pressaoTest1,pressaoTest2, pressaoTest3, pressaoTest4, pressaoTest5);
-        listaDataRegistarda.stream().forEach(pressao -> pressao.registrarDataMedicao());
+        listaDataRegistarda.stream().forEach(PressaoArterial::registrarDataMedicao);
 
         repo.saveAll(listaDataRegistarda);
     }

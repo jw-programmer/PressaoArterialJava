@@ -1,6 +1,7 @@
 package br.com.jwprogammer.pressaoArterialJava.repository;
 
 import br.com.jwprogammer.pressaoArterialJava.domain.PressaoArterial;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
