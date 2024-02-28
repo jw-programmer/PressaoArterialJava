@@ -2,6 +2,7 @@ package br.com.jwprogammer.pressaoArterialJava.controllers;
 
 import br.com.jwprogammer.pressaoArterialJava.domain.PressaoArterial;
 import br.com.jwprogammer.pressaoArterialJava.domain.dto.PressaoArterialDTO;
+import br.com.jwprogammer.pressaoArterialJava.domain.dto.PressaoArterialQueryFilter;
 import br.com.jwprogammer.pressaoArterialJava.services.PressaoArterialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -27,12 +28,13 @@ public class PressaoArterialController {
     @GetMapping(params = {"page","linesPerPage", "orderBy", "direction"})
     @CrossOrigin
     public ResponseEntity<Page<PressaoArterial>> getAllPressoesArteriaisPaginadas(
+    		PressaoArterialQueryFilter pressaoQueryFilter,
 			@RequestParam(value = "page", defaultValue = "0") Integer page,
 			@RequestParam(value = "linesPerPage", defaultValue = "5") Integer linesPerPage,
 			@RequestParam(value = "orderBy", defaultValue = "dataMedicao") String orderBy,
 			@RequestParam(value = "direction", defaultValue = "DESC") String direction
     		){
-    	Page<PressaoArterial> pressoes = service.getAllPressaoArterialPage(page, linesPerPage, orderBy, direction);
+    	Page<PressaoArterial> pressoes = service.getAllPressaoArterialPage(page, linesPerPage, orderBy, direction, pressaoQueryFilter);
     	return ResponseEntity.ok().body(pressoes);
     }
 

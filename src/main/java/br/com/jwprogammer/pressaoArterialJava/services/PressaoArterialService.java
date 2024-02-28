@@ -1,7 +1,10 @@
 package br.com.jwprogammer.pressaoArterialJava.services;
 
 import br.com.jwprogammer.pressaoArterialJava.domain.PressaoArterial;
+import br.com.jwprogammer.pressaoArterialJava.domain.dto.PressaoArterialQueryFilter;
 import br.com.jwprogammer.pressaoArterialJava.repository.PressaoArterialRepository;
+import br.com.jwprogammer.pressaoArterialJava.repository.especifications.PressaoArterialJpaEspecifications;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -25,8 +28,8 @@ public class PressaoArterialService {
         return repo.findAll();
     }
     
-    public Page<PressaoArterial> getAllPressaoArterialPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
+    public Page<PressaoArterial> getAllPressaoArterialPage(Integer page, Integer linesPerPage, String orderBy, String direction, PressaoArterialQueryFilter queryFilter) {
     	PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
-        return repo.findAll(pageRequest);
+        return repo.findAll(PressaoArterialJpaEspecifications.searchByFilter(queryFilter), pageRequest);
     }
 }

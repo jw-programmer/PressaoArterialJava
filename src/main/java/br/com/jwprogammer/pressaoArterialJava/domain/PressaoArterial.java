@@ -55,4 +55,8 @@ public class PressaoArterial {
     public void registrarDataMedicao() {
         dataMedicao = LocalDate.now();
     }
+    
+    public void registrarDataMedicao(LocalDate date) {
+        dataMedicao = date;
+    }
 }
