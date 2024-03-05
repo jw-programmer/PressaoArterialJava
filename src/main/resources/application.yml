@@ -14,7 +14,7 @@ spring:
     enabled: true
   docker:
     compose:
-      enabled: false
+      enabled: true
       file: docker-compose.yml
         
     
