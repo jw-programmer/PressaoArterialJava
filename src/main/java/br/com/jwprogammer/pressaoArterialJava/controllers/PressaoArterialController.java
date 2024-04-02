@@ -29,10 +29,10 @@ public class PressaoArterialController {
     @CrossOrigin
     public ResponseEntity<Page<PressaoArterial>> getAllPressoesArteriaisPaginadas(
     		PressaoArterialQueryFilter pressaoQueryFilter,
-			@RequestParam(value = "page", defaultValue = "0") Integer page,
-			@RequestParam(value = "linesPerPage", defaultValue = "5") Integer linesPerPage,
-			@RequestParam(value = "orderBy", defaultValue = "dataMedicao") String orderBy,
-			@RequestParam(value = "direction", defaultValue = "DESC") String direction
+			@RequestParam(defaultValue = "0") Integer page,
+			@RequestParam(defaultValue = "5") Integer linesPerPage,
+			@RequestParam(defaultValue = "dataMedicao") String orderBy,
+			@RequestParam(defaultValue = "DESC") String direction
     		){
     	Page<PressaoArterial> pressoes = service.getAllPressaoArterialPage(page, linesPerPage, orderBy, direction, pressaoQueryFilter);
     	return ResponseEntity.ok().body(pressoes);
