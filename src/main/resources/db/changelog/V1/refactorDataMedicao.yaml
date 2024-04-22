@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+        id: rename-columnmedicao
+        author: jw-progammer
+        preConditions:
+          - onFail: MARK_RAN
+          - columnExists:
+              tableName: pressao_arterial
+              columnName: data_medicao
+        changes:
+          - renameColumn:
+              newColumnName: data_hora_medicao
+              oldColumnName: data_medicao
+              tableName: pressao_arterial
+  - changeSet:
+      id: create-database
+      author: jw-progammer
+      preConditions:
+        - onFail: MARK_RAN
+        - columnExists:
+            tableName: pressao_arterial
+            columnName: data_hora_medicao
+      changes:
+        - modifyDataType:
+            columnName: data_hora_medicao
+            newDataType: timestamp
+            tableName: pressao_arterial

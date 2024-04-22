@@ -1,6 +1,6 @@
 package br.com.jwprogammer.pressaoArterialJava.domain.dto;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import br.com.jwprogammer.pressaoArterialJava.domain.enuns.Risco;
 import lombok.Data;
@@ -11,7 +11,7 @@ public class PressaoArterialQueryFilter {
 	private String sistolicaFinal;
 	private String diastolicaInicial;
 	private String diastolicaFinal;
-	private LocalDate dataMedicaoInicial;
-	private LocalDate dataMedicaoFinal;
+	private LocalDateTime dataHoraMedicaoInicial;
+	private LocalDateTime dataHoraMedicaoFinal;
 	private Risco risco;
 }

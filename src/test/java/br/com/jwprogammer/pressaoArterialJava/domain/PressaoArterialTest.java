@@ -7,6 +7,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,8 +44,8 @@ class PressaoArterialTest {
         //When
         pressaoArterial.registrarDataMedicao();
         //Then
-        assertNotNull(pressaoArterial.getDataMedicao(), () -> "A data deveria ter sido instanciada quando o método do registro é chamado.");
-        assertEquals(LocalDate.now(), pressaoArterial.getDataMedicao(), () -> "A medição deveria ser hoje");
+        assertNotNull(pressaoArterial.getDataHoraMedicao(), () -> "A data deveria ter sido instanciada quando o método do registro é chamado.");
+        assertEquals(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS), pressaoArterial.getDataHoraMedicao().truncatedTo(ChronoUnit.SECONDS), () -> "A medição deveria ser hoje");
 
     }
 }

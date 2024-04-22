@@ -10,6 +10,7 @@ import lombok.Getter;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -22,7 +23,7 @@ public class PressaoArterial {
     private BigDecimal sistolica;
     private BigDecimal diastolica;
     private Risco risco;
-    private LocalDate dataMedicao;
+    private LocalDateTime dataHoraMedicao;
     
     private PressaoArterial() {
     	
@@ -53,10 +54,10 @@ public class PressaoArterial {
     }
 
     public void registrarDataMedicao() {
-        dataMedicao = LocalDate.now();
+        dataHoraMedicao = LocalDateTime.now();
     }
     
-    public void registrarDataMedicao(LocalDate date) {
-        dataMedicao = date;
+    public void registrarDataMedicao(LocalDateTime date) {
+        dataHoraMedicao = date;
     }
 }

@@ -14,6 +14,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
@@ -42,11 +43,11 @@ public class PressaoArterialRepositoryTest extends AbstractIntegrationTest {
         PressaoArterial pressaoTest9 = new PressaoArterial("120", "140");
         PressaoArterial pressaoTest10 = new PressaoArterial("140", "90");
         
-        pressaoTest6.registrarDataMedicao(LocalDate.of(2023, 1, 1));
-        pressaoTest7.registrarDataMedicao(LocalDate.of(2023, 1, 10));
-        pressaoTest8.registrarDataMedicao(LocalDate.of(2023, 2, 5));
-        pressaoTest9.registrarDataMedicao(LocalDate.of(2023, 3, 7));
-        pressaoTest10.registrarDataMedicao(LocalDate.of(2023, 4, 1));
+        pressaoTest6.registrarDataMedicao(LocalDateTime.of(2023, 1, 1, 0, 0));
+        pressaoTest7.registrarDataMedicao(LocalDateTime.of(2023, 1, 10, 0, 0));
+        pressaoTest8.registrarDataMedicao(LocalDateTime.of(2023, 2, 5, 0, 0));
+        pressaoTest9.registrarDataMedicao(LocalDateTime.of(2023, 3, 7, 0, 0));
+        pressaoTest10.registrarDataMedicao(LocalDateTime.of(2023, 4, 1, 0, 0));
         
         var listaDataEspecificada = Arrays.asList(pressaoTest6, pressaoTest7, pressaoTest8, pressaoTest9, pressaoTest10);
 
@@ -175,8 +176,8 @@ public class PressaoArterialRepositoryTest extends AbstractIntegrationTest {
     @Test
     void testReturnPressaoArterialWithSpecificationIntervaloData(){
     	PressaoArterialQueryFilter queryFilter = new PressaoArterialQueryFilter();
-    	queryFilter.setDataMedicaoInicial(LocalDate.of(2023, 2, 1));
-    	queryFilter.setDataMedicaoFinal(LocalDate.of(2023, 3, 30));
+    	queryFilter.setDataHoraMedicaoInicial(LocalDateTime.of(2023, 2, 1, 0, 0));
+    	queryFilter.setDataHoraMedicaoFinal(LocalDateTime.of(2023, 3, 30, 0, 0));
         List<PressaoArterial> histPressao = repo.findAll(PressaoArterialJpaEspecifications.searchByFilter(queryFilter));
 
         assertNotNull(histPressao);
@@ -188,7 +189,7 @@ public class PressaoArterialRepositoryTest extends AbstractIntegrationTest {
     @Test
     void testReturnPressaoArterialWithSpecificationInicialData(){
     	PressaoArterialQueryFilter queryFilter = new PressaoArterialQueryFilter();
-    	queryFilter.setDataMedicaoInicial(LocalDate.of(2023, 2, 28));
+    	queryFilter.setDataHoraMedicaoInicial(LocalDateTime.of(2023, 2, 28, 0, 0));
         List<PressaoArterial> histPressao = repo.findAll(PressaoArterialJpaEspecifications.searchByFilter(queryFilter));
 
         assertNotNull(histPressao);
@@ -200,7 +201,7 @@ public class PressaoArterialRepositoryTest extends AbstractIntegrationTest {
     @Test
     void testReturnPressaoArterialWithSpecificationFinalData(){
     	PressaoArterialQueryFilter queryFilter = new PressaoArterialQueryFilter();
-    	queryFilter.setDataMedicaoFinal(LocalDate.of(2023, 3, 1));
+    	queryFilter.setDataHoraMedicaoFinal(LocalDateTime.of(2023, 3, 1, 0, 0));
         List<PressaoArterial> histPressao = repo.findAll(PressaoArterialJpaEspecifications.searchByFilter(queryFilter));
 
         assertNotNull(histPressao);
@@ -217,8 +218,8 @@ public class PressaoArterialRepositoryTest extends AbstractIntegrationTest {
     	queryFilter.setSistolicaFinal("130");
     	queryFilter.setDiastolicaInicial("80");
     	queryFilter.setDiastolicaFinal("120");
-    	queryFilter.setDataMedicaoInicial(LocalDate.of(2023, 1, 1));
-    	queryFilter.setDataMedicaoFinal(LocalDate.of(2023, 4, 1));
+    	queryFilter.setDataHoraMedicaoInicial(LocalDateTime.of(2023, 1, 1, 0 ,0));
+    	queryFilter.setDataHoraMedicaoFinal(LocalDateTime.of(2023, 4, 1, 0, 0));
         List<PressaoArterial> histPressao = repo.findAll(PressaoArterialJpaEspecifications.searchByFilter(queryFilter));
 
         assertNotNull(histPressao);

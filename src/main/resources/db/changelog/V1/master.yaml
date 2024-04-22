@@ -2,3 +2,6 @@ databaseChangeLog:
   - include:
       file: createPressaoTable.yaml
       relativeToChangelogFile: true
+  - include:
+      file: refactorDataMedicao.yaml
+      relativeToChangelogFile: true

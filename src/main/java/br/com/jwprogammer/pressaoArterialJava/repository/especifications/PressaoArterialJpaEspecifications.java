@@ -57,19 +57,19 @@ public class PressaoArterialJpaEspecifications {
 				}
 			}
 			
-			if(!Objects.isNull(filter.getDataMedicaoInicial()) && !Objects.isNull(filter.getDataMedicaoFinal())) {
-				var pressaoIntervaloPredicate = criteriaBuilder.between(root.get("dataMedicao")
-						, filter.getDataMedicaoInicial()
-						, filter.getDataMedicaoFinal());
+			if(!Objects.isNull(filter.getDataHoraMedicaoInicial()) && !Objects.isNull(filter.getDataHoraMedicaoFinal())) {
+				var pressaoIntervaloPredicate = criteriaBuilder.between(root.get("dataHoraMedicao")
+						, filter.getDataHoraMedicaoInicial()
+						, filter.getDataHoraMedicaoFinal());
 				
 				predicates.add(pressaoIntervaloPredicate);
 			}else {
-				if(!Objects.isNull(filter.getDataMedicaoInicial())) {
-					var pressaoInicalPredicate = criteriaBuilder.greaterThanOrEqualTo(root.get("dataMedicao"), filter.getDataMedicaoInicial());
+				if(!Objects.isNull(filter.getDataHoraMedicaoInicial())) {
+					var pressaoInicalPredicate = criteriaBuilder.greaterThanOrEqualTo(root.get("dataHoraMedicao"), filter.getDataHoraMedicaoInicial());
 					predicates.add(pressaoInicalPredicate);
 				}
-				if(!Objects.isNull(filter.getDataMedicaoFinal())) {
-					var pressaoFinalPredicate = criteriaBuilder.lessThanOrEqualTo(root.get("dataMedicao"), filter.getDataMedicaoFinal());
+				if(!Objects.isNull(filter.getDataHoraMedicaoFinal())) {
+					var pressaoFinalPredicate = criteriaBuilder.lessThanOrEqualTo(root.get("dataHoraMedicao"), filter.getDataHoraMedicaoFinal());
 					predicates.add(pressaoFinalPredicate);
 				}
 			}

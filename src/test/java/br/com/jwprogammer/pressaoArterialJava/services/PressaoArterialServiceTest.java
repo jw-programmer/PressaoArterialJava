@@ -11,6 +11,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -37,8 +39,8 @@ public class PressaoArterialServiceTest {
         var pressao = service.addPressaoArterial(pressaoTest1);
 
         assertNotNull(pressao);
-        assertNotNull(pressao.getDataMedicao());
-        assertEquals(LocalDate.now(), pressao.getDataMedicao());
+        assertNotNull(pressao.getDataHoraMedicao());
+        assertEquals(LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS), pressao.getDataHoraMedicao().truncatedTo(ChronoUnit.SECONDS));
     }
 
     @Test
