@@ -1,7 +1,7 @@
 spring:
   datasource:
     password: development
-    url: jdbc:postgresql://localhost:5432/pressao
+    url: jdbc:postgresql://localhost:5432/pressao_arterial
     username: dev
   jpa:
     hibernate:

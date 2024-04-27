@@ -13,7 +13,7 @@ databaseChangeLog:
               oldColumnName: data_medicao
               tableName: pressao_arterial
   - changeSet:
-      id: create-database
+      id: refactor-datetype
       author: jw-progammer
       preConditions:
         - onFail: MARK_RAN
