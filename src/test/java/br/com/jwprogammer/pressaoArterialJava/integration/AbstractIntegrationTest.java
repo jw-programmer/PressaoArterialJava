@@ -30,7 +30,7 @@ public class AbstractIntegrationTest {
         
         @Override
         @SuppressWarnings({ "rawtypes", "unchecked" })
-        public void initialize(ConfigurableApplicationContext applicationContext) {
+        public void initialize(@SuppressWarnings("null") ConfigurableApplicationContext applicationContext) {
             startContainers();
             ConfigurableEnvironment environment = applicationContext.getEnvironment();
             MapPropertySource testcontainers =

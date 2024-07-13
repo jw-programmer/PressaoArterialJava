@@ -9,7 +9,6 @@ import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -25,6 +24,7 @@ public class PressaoArterial {
     private Risco risco;
     private LocalDateTime dataHoraMedicao;
     
+    @SuppressWarnings("unused")
     private PressaoArterial() {
     	
     };
